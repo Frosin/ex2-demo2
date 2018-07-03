@@ -6,7 +6,12 @@ class EventHandler
         
       global $USER;
       
-      if (!$USER->isAdmin())
+      $arCurGroups = $USER->GetUserGroupArray();
+      $isManager = false;
+      if (in_array(CONTENT_MANAGER_GROUP, $arCurGroups))
+        $isManager = true;
+        
+      if (!$USER->isAdmin() || $isManager)
       {
         foreach($moduleMenu as $key => $item)
         {

@@ -10,9 +10,9 @@ if(!Loader::includeModule("iblock"))
 	return;
 }
 
-
+global $USER;
 if (intval($arParams["NEWS_IBLOCK_ID"]) > 0 &&
-	$this->StartResultCache())
+	$this->StartResultCache(false, $USER->GetID()))
 {
 	
 	
